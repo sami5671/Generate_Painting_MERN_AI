@@ -2,6 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PaintingCard = ({ painting }) => {
+  // Download handler
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = painting?.url;
+    link.download = painting?.title || "painting";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="relative hover:mt-2 transition-all duration-200 rounded-lg ">
       <img src={painting?.url} alt="" className="rounded-lg" />
@@ -12,7 +21,6 @@ const PaintingCard = ({ painting }) => {
         </Link>
         <div className="m-4 flex items-center gap-3">
           <div className="">
-            {" "}
             <img
               className="w-12 h-12 rounded-full"
               src={painting?.userImg}
@@ -20,7 +28,6 @@ const PaintingCard = ({ painting }) => {
             />
           </div>
           <div className="mt-2">
-            {" "}
             <h1 className="text-white">
               <span className="text-orange-400 font-bold mr-1">
                 Created By:

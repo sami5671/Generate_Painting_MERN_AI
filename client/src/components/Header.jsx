@@ -36,9 +36,7 @@ const Header = () => {
       <div className="text-center bg-slate-400"></div>
       <div className="w-11/12 mx-auto py-5 flex justify-between items-center relative">
         <Link to="/" className="logo">
-          <span className="text-xl font-bold text-stone-700">
-            Leanardo 🎨 Vinci
-          </span>
+          <span className="text-xl font-bold text-stone-700">Leanardo 🎨</span>
         </Link>
 
         {/* menu-lg start */}
@@ -50,8 +48,8 @@ const Header = () => {
           ))}
           {user && user?.email ? (
             <>
-              <NavLink key="/replies" to="/replies">
-                My Replies
+              <NavLink key="/myPaintings" to="/myPaintings">
+                My Paintings
               </NavLink>
               <button className="cursor-pointer" onClick={logOut}>
                 Logout
@@ -103,8 +101,8 @@ const Header = () => {
               ))}
               {user && user?.email ? (
                 <>
-                  <NavLink key="/replies" to="/replies">
-                    My Replies
+                  <NavLink key="/myPaintings" to="/myPaintings">
+                    My Paintings
                   </NavLink>
                   <button className="cursor-pointer" onClick={logOut}>
                     Logout

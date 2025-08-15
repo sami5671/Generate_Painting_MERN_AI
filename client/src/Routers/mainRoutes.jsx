@@ -9,6 +9,7 @@ import Kitchen from "../pages/Kitchen";
 import Generate from "../pages/Generate";
 import PaintingDetails from "../pages/PaintingDetails";
 import Paintings from "../pages/Paintings";
+import MyPaintings from "../pages/MyPaintings";
 
 const mainRoutes = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const mainRoutes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/paintings/${params.id}`),
+      },
+      {
+        path: "/myPaintings",
+        element: (
+          <PrivateRoute>
+            <MyPaintings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "registration",

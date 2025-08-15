@@ -1,3 +1,4 @@
+import googleAnimation from "../assets/google.json";
 import Lottie from "lottie-react";
 import Title from "../components/Title";
 import {
@@ -8,11 +9,10 @@ import {
   BiUser,
 } from "react-icons/bi";
 import happy from "../assets/happy.json";
-import Social from "../components/Social";
+
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import googleAnimation from "../assets/google.json";
 import { imageUpload } from "../api/utils";
 import { saveUser } from "../api/auth";
 import toast from "react-hot-toast";
@@ -20,7 +20,7 @@ import baseAxios from "../api";
 
 const Register = () => {
   const goTo = useNavigate();
-  const { createUser, signIn, user, setUser, updateUser, updateuse } =
+  const { createUser, signIn, user, setUser, updateUser, googleSignIn } =
     useContext(AuthContext);
 
   const [uploadButtonText, setUploadButtonText] = useState(
@@ -70,6 +70,31 @@ const Register = () => {
       setLoading(false);
     }
   };
+
+  // google sign in
+  const handleGoogleSignIn = async () => {
+    try {
+      // user registration with google
+      const result = await googleSignIn();
+
+      // save user info into the database directly here
+      const currentUser = {
+        name: result?.user?.displayName,
+        email: result?.user?.email,
+        photo: result?.user?.photoURL,
+        firebaseUserId: result?.user?.uid,
+      };
+
+      await baseAxios.put(`/auth/register/${currentUser?.email}`, currentUser);
+
+      toast.success("SignUp Successful");
+      setLoading(false);
+      goTo("/generate");
+      // ----------------------------------------------------------------
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
   // ----------------------------------------------------------------
   const handleImageChange = (image) => {
     setUploadButtonText(image.name);
@@ -85,7 +110,10 @@ const Register = () => {
           <div className="flex  justify-between items-center gap-5 pt-8">
             <div className="login-for flex-1">
               <div className="flex flex-col justify-center items-center">
-                <button className="flex items-center">
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="flex items-center"
+                >
                   Continue With Google
                   <span className="w-8">
                     <Lottie animationData={googleAnimation}></Lottie>

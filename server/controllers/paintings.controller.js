@@ -33,7 +33,11 @@ const generatePaint = async (req, res) => {
 };
 
 const getAllPaintings = async (req, res) => {
-  const paintings = await paintingCollection.find({}).toArray();
+  const paintings = await paintingCollection
+    .find({})
+    .sort({ _id: -1 }) // sort by newest first
+    .toArray();
+
   res.send(paintings);
 };
 
@@ -46,4 +50,20 @@ const getPaintingById = async (req, res) => {
   }
   res.send(painting);
 };
-module.exports = { generatePaint, getAllPaintings, getPaintingById };
+
+const getMyPaintings = async (req, res) => {
+  const { email } = req.params; // FIXED: params instead of query
+  const paintings = await paintingCollection
+    .find({ email: email })
+    .sort({ _id: -1 }) // newest first
+    .toArray();
+
+  res.send(paintings);
+};
+
+module.exports = {
+  generatePaint,
+  getAllPaintings,
+  getPaintingById,
+  getMyPaintings,
+};
