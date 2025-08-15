@@ -1,13 +1,14 @@
 const express = require("express");
 const {
-  testRoute,
   generatePaint,
+  getAllPaintings,
+  getPaintingById,
 } = require("../controllers/paintings.controller");
 const router = express.Router();
 
-router.get("/", testRoute);
 router.post("/generate", generatePaint);
-
+router.get("/allPaintings", getAllPaintings);
+router.get("/:id", getPaintingById);
 // router.post("/");
 
 module.exports = router;

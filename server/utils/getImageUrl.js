@@ -1,8 +1,8 @@
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.I_API_KEY}`;
 
 const getImageUrl = async (buffer, prompt) => {
-  console.log(image_hosting_api);
-  ``;
+  // console.log(image_hosting_api);
+
   const imageFormData = new FormData();
   imageFormData.append(
     "image",

@@ -1,18 +1,13 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAyd0c5kt2maFnfZP4aBShwgI9CKM6yyZM",
-  authDomain: "chef-note.firebaseapp.com",
-  projectId: "chef-note",
-  storageBucket: "chef-note.appspot.com",
-  messagingSenderId: "789656932914",
-  appId: "1:789656932914:web:a28d9f2dd2ba29eff1622b",
+  apiKey: "AIzaSyAwFqZfmBIhweWk1WnL4xFEmDETAfH44Ro",
+  authDomain: "crack-ai-455ac.firebaseapp.com",
+  projectId: "crack-ai-455ac",
+  storageBucket: "crack-ai-455ac.firebasestorage.app",
+  messagingSenderId: "222751277740",
+  appId: "1:222751277740:web:f73ccc78cfd65443bc1509",
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export default app;

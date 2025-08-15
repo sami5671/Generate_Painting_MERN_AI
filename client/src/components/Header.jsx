@@ -30,7 +30,7 @@ const Header = () => {
       {user && (
         <p className="text-center text-white bg-black py-2 bg-opacity-90">
           Welcome Mr. {user?.displayName} ❤️‍🔥❤️‍🔥. Now You Can Watch All the
-          Recipies🍉🍉
+          Paintings and Generate Your Own Paintings using GenAI
         </p>
       )}
       <div className="text-center bg-slate-400"></div>

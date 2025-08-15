@@ -9,7 +9,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
-let db = client.db("crack-ai-db");
+let db = client.db("Generative_Ai_ImageGeneration");
 
 const connect = async () => {
   try {

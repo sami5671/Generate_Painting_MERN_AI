@@ -11,6 +11,7 @@ import { data } from "autoprefixer";
 
 import loginAnimation from "../assets/loginAnimation.json";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -27,38 +28,10 @@ const Login = () => {
     signIn(email, pass)
       .then((res) => {
         const user = res.user;
-        alert("successfull");
-        // axios
-        //   .post(
-        //     "https://chef-note-server.vercel.app/jwt",
-        //     { email },
-        //     { withCredentials: true }
-        //   )
-        //   .then((data) => console.log(data));
-
-        axios
-          .post(
-            "https://chef-note-server.vercel.app/jwt",
-            { email },
-            { withCredentials: true }
-          )
-          .then((res) => {
-            navigate(`${location.state ? location.state : "/"}`);
-            console.log(res.data);
-          });
-
-        // fetch("https://chef-note-server.vercel.app/jwt", {
-        //   method: "POST",
-        //   credentials: "include",
-        //   headers: {
-        //     "content-type": "application/json",
-        //   },
-        //   body: JSON.stringify({ email: email }),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => console.log(data));
-
-        // navigate(`${location.state ? location.state : "/"}`);
+        if (user) {
+          toast.success("Login Successful");
+          navigate(`${location.state ? location.state : "/"}`);
+        }
       })
       .catch((err) => {
         console.log(err);

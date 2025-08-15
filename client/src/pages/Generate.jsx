@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import baseAxios from "./../api/index";
 
 const Generate = () => {
   const { user } = useContext(AuthContext);
@@ -55,12 +56,13 @@ const Generate = () => {
       );
     }
     setLoading(true);
-    axios
-      .post("http://localhost:5000/api/v1/paintings/generate", {
+    baseAxios
+      .post("/paintings/generate", {
         prompt,
         type: activeType,
         category: activeCat,
         email: user?.email,
+        name: user?.displayName,
       })
       .then((res) => {
         if (res?.data?.insertedId) {
