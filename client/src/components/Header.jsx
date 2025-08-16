@@ -81,7 +81,7 @@ const Header = () => {
 
           {
             <ul
-              className={`flex animate__animated bg-white flex-col lg:hidden gap-5 absolute z-50 bg-opacity-70 w-full top-14  left-0 ${
+              className={`flex animate__animated bg-white flex-col lg:hidden gap-5 absolute z-50 bg-opacity-95 p-6 w-full top-14  left-0 ${
                 isMenuOpen
                   ? "animate__fadeInRight "
                   : isPageLoad

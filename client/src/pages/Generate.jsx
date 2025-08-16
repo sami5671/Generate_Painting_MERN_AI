@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import baseAxios from "./../api/index";
-
+import generateMagicIcon from "../assets/magic.json";
+import Lottie from "lottie-react";
 const Generate = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -87,10 +88,14 @@ const Generate = () => {
           type="text"
           name="prompt"
           placeholder="What kind of painting do you need?"
-          className="input input-bordered w-10/12"
+          className="input input-bordered w-11/12 lg:w-8/12"
         />
-        <button className="bg-orange-500 px-4 py-2 text-white rounded">
-          Generate
+        <button className="hover:bg-orange-500 text-blue-500 px-4 py-2 hover:text-white rounded flex items-center gap-2 h-12 w-36">
+          Generate{" "}
+          <span className="">
+            {" "}
+            <Lottie animationData={generateMagicIcon}></Lottie>
+          </span>
         </button>
       </form>
 

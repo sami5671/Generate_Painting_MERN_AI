@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAwFqZfmBIhweWk1WnL4xFEmDETAfH44Ro",
-  authDomain: "crack-ai-455ac.firebaseapp.com",
-  projectId: "crack-ai-455ac",
-  storageBucket: "crack-ai-455ac.firebasestorage.app",
-  messagingSenderId: "222751277740",
-  appId: "1:222751277740:web:f73ccc78cfd65443bc1509",
+  apiKey: "AIzaSyAxhhDSG8RXxEd25s5-GQ2UY9t-YppLTS8",
+  authDomain: "leanardoai-67e36.firebaseapp.com",
+  projectId: "leanardoai-67e36",
+  storageBucket: "leanardoai-67e36.firebasestorage.app",
+  messagingSenderId: "1036355093697",
+  appId: "1:1036355093697:web:5978edf044883e366f0040"
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -28,7 +28,8 @@ const mainRoutes = createBrowserRouter([
       {
         path: "paintings",
         element: <Paintings></Paintings>,
-        loader: () => fetch("http://localhost:5000/paintings/allPaintings"),
+        loader: () =>
+          fetch("https://leanardoai.vercel.app/paintings/allPaintings"),
       },
       {
         path: "generate",
@@ -46,7 +47,7 @@ const mainRoutes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/paintings/${params.id}`),
+          fetch(`https://leanardoai.vercel.app/paintings/${params.id}`),
       },
       {
         path: "/myPaintings",

@@ -6,8 +6,8 @@ const cors = require("cors");
 const { connect } = require("./utils/dbconnect");
 
 const corsOptions = {
-  // origin: [""],
-  origin: ["http://localhost:5173", "http://localhost:5174"],
+  origin: ["https://leanardoai-67e36.web.app"],
+  // origin: ["http://localhost:5173", "http://localhost:5174"],
   credentials: true,
   optionSuccessStatus: 200,
 };
